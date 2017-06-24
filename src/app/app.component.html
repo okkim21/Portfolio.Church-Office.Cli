@@ -1,4 +1,35 @@
-<h1>
-  {{title}}
-</h1>
-<router-outlet></router-outlet>
+
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="index.html">Church Office</a>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/dashboard']" routerLinkActive="active">Dashboard <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/families']" routerLinkActive="active">Family</a>
+      </li>
+    </ul>
+   
+  </div>
+</nav>
+
+<!-- Page Content -->
+<div class="page-content">
+  <router-outlet></router-outlet>
+
+  <hr>
+  <!-- Footer -->
+
+  <footer class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <p>Copyright &copy; UnioneSoft 2017</p>
+      </div>
+    </div>
+  </footer>
+
+</div>

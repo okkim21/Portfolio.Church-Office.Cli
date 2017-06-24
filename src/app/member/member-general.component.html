@@ -1,0 +1,104 @@
+
+  <div class="card">
+    <div class="card-header">
+      Member General 
+    </div>
+    <div class="card-block">
+      <form (ngSubmit)="saveMemberGeneral()" novalidate [formGroup]="memberGeneralForm">
+
+        <div class="form-group row">
+          <label for="koreanLastName" class="col-4 col-form-label">Korean Last Name</label>
+          <div class="col-8">
+            <input type="text" class="hidden" formControlName="id">
+             <input type="text" class="hidden" formControlName="personalId">
+            <input type="text" class="form-control" placeholder="korean last name" formControlName="koreanLastName">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="koreanFirstName" class="col-4 col-form-label">Korean Firts Name</label>
+          <div class="col-8">
+            <input type="text" class="form-control" placeholder="korean first name" formControlName="koreanFirstName">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="englishLastName" class="col-4 col-form-label">English Last Name</label>
+          <div class="col-8">
+            <input type="text" class="form-control" placeholder="english last name" formControlName="englishLastName">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="englishFirtsName" class="col-4 col-form-label">English First Name</label>
+          <div class="col-8">
+            <input type="text" class="form-control" placeholder="english first name" formControlName="englishFirstName">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="gender" class="col-4 col-form-label">Gender</label>
+          <div class="col-8">
+            <div class="form-check form-check-inline">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="gender" formControlName="gender" value="female"> Female
+              </label>
+            </div>
+            <div class="form-check form-check-inline">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="gender" formControlName="gender" value="male"> Male
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+            <label for="relation" class="col-4 col-form-label">Relation</label>
+            <div class="col-8">
+              <select class="form-control" formControlName="relation">
+                <option value="">--select relation</option>
+                <option *ngFor="let r of relations" [value]="r.relationId">{{r.relationName}}</option>
+              </select>
+            </div>
+        </div>
+        <div class="form-group row">
+          <label for="occupation" class="col-4 col-form-label">Occupation</label>
+          <div class="col-8">
+            <input type="text" class="form-control" placeholder="occupation" formControlName="occupation">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="birthDate" class="col-4 col-form-label">Birth Date</label>
+          <div class="col-8">
+            <input class="form-control" type="date" value="birthDate" formControlName="birthDate">
+          </div>
+        </div>
+         <div class="form-group row">
+          <label for="birthPlace" class="col-4 col-form-label">Birth Place</label>
+          <div class="col-8">
+            <input type="text" class="form-control" placeholder="birth place" formControlName="birthPlace">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="createdDate" class="col-4 col-form-label">Created Date</label>
+          <div class="col-8">
+            <input type="text" class="form-control" readonly formControlName="createdDate">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="lastUpdatedDate" class="col-4 col-form-label">Last Updated Date</label>
+          <div class="col-8">
+            <input type="text" class="form-control" readonly formControlName="lastUpdatedDate">
+          </div>
+        </div>
+        <div class="form-group row">
+          <span>    
+            <button class="btn btn-primary" type="submit" [disabled]="!memberGeneralForm.valid">
+              Save  
+            </button>
+          </span>
+          <span>    
+            <button class="btn btn-secondary" (click)="activeModal.dismiss('Cross click')">
+              Cancel  
+            </button>
+          </span>
+        </div>
+      </form>
+    </div>
+  </div>
+

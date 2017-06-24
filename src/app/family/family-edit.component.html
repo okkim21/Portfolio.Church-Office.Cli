@@ -1,0 +1,208 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      Family Information - {{ pageTitle }}
+    </div>
+    <div class="card-blokc">
+      <form (ngSubmit)="saveFamily()" novalidate [formGroup]="familyForm" class="form-inline">
+
+        <div class="col-6">
+          <div class="form-group">
+            <label for="address1" class="col-4 col-form-label">Address1</label>
+            <div class="col-8">
+              <input type="text" class="form-control" placeholder="Address1" formControlName="address1">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="address2" class="col-4 col-form-label">Address2</label>
+            <div class="col-8">
+              <input type="text" class="form-control" placeholder="Address2" formControlName="address2">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="city" class="col-4 col-form-label">City</label>
+            <div class="col-8">
+              <input type="text" class="form-control" placeholder="City" formControlName="city">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="state" class="col-4 col-form-label">State</label>
+            <div class="col-8">
+              <select class="form-control" formControlName="state">
+                <option value="">--select state</option>
+                <option *ngFor="let s of states" [value]="s.state">{{s.state}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="zipcode" class="col-4 col-form-label">Zipcode</label>
+            <div class="col-8">
+              <input type="text" class="form-control" placeholder="Zipcode" formControlName="zipcode">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="country" class="col-4 col-form-label">Country</label>
+            <div class="col-8">
+              <select class="form-control" formControlName="country">
+                <option value="">--select country</option>
+                <option *ngFor="let c of countries" [value]="c.countryCode">{{c.country}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="createdDate" class="col-4 col-form-label">Created Date</label>
+            <div class="col-8">
+              <input type="text" class="form-control" readonly formControlName="createdDate">
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <label for="homePhone" class="col-4 col-form-label">Home Phone</label>
+            <div class="col-8">
+              <input type="text" class="form-control" placeholder="Home Phone" formControlName="homePhone">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="workPhone" class="col-4 col-form-label">Work Phone</label>
+            <div class="col-8">
+              <input type="text" class="form-control" placeholder="Work Phone" formControlName="workPhone">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="cellPhone" class="col-4 col-form-label">Cell Phone</label>
+            <div class="col-8">
+              <input type="text" class="form-control" placeholder="Cell Phone" formControlName="cellPhone">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="faxNumber" class="col-4 col-form-label">Fax Number</label>
+            <div class="col-8">
+              <input type="text" class="form-control" placeholder="Fax Number" formControlName="faxNumber">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="region" class="col-4 col-form-label">Region</label>
+            <div class="col-8">
+              <select class="form-control" formControlName="region">
+                <option value="">-- select region</option>
+                <option *ngFor="let r of regions" [value]="r.regionId">{{r.region}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group" *ngIf="subregions && regions">
+            <label for="subregion" class="col-4 col-form-label">Subregion</label>
+            <div class="col-8">
+              <select class="form-control" formControlName="subregion">
+                  <option value="">-- select subregion</option>
+                  <option *ngFor="let s of subregions | subregionFilter:regionFilter" [value]="s.subregionId">{{s.subregion}}</option>
+                </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="lastUpdatedDate" class="col-4 col-form-label">Updated Date</label>
+            <div class="col-8">
+              <input type="text" class="form-control" readonly formControlName="lastUpdatedDate">
+            </div>
+          </div>
+
+        </div>
+        <div class="form-group" style="margin-left:50px; margin-top:15px;">
+          <span>
+                 <a class="btn btn-secondary"
+                        style="width:180px"
+                        [routerLink]="['/member-general']">
+                        Add Family Member
+                </a>
+            </span>
+          <span style="margin-left:615px">    
+                <button class="btn btn-primary" type="submit" style="width:100px" [disabled]="!familyForm.valid">
+                  Save  
+                </button>
+              </span>
+        </div>
+
+
+      </form>
+    </div>
+  </div>
+  <!--<br>Dirty: {{familyForm.dirty}}
+  <br>Touched: {{familyForm.touched}}
+  <br>Valid: {{familyForm.valid}
+  <br>Value: {{familyForm.value|json}}
+  <br>-->
+
+  <div class="card">
+    <div class="card-header">
+      Family Members
+    </div>
+    <div class="card-block">
+      <div class="row">
+        <div class="table-responsive">
+          <table class="table table-striped table-hover" *ngIf='familyMember && familyMember.length'>
+            <thead>
+              <tr>
+                <th>English Name</th>
+                <th>Korean Name</th>
+                <th>Baptized Name</th>
+                <th>Gender</th>
+                <th>Relation</th>
+                <th>Birth Date</th>
+                <th>Baptized Date</th>
+                <th>Confirmation Date</th>
+                <th>Married Date</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor='let member of familyMember'>
+                <td>
+                  {{member.englishFirstName + member.englishLastName}}
+                </td>
+                <td>
+                  {{member.koreanLastName + member.koreanFirstName}}
+                </td>
+                <td>
+                  {{member.baptismName}}
+                </td>
+                <td>
+                  {{member.gender}}
+                </td>
+                <td>
+                  {{member.relation.name}}
+                </td>
+                <td>
+                  {{member.birthDate | date:'shortDate'}}
+                </td>
+                <td>
+                  {{member.baptizedDate | date:'shortDate'}}
+                </td>
+                <td>
+                  {{member.confirmationDate | date:'shortDate'}}
+                </td>
+                <td>
+                  {{member.marriedDate | date:'shortDate'}}
+                </td>
+                <td>
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Action
+                    </button>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" (click) = "editMemberGeneral(member.generalInformation)">General</a>
+                      <a class="dropdown-item" href="#">Baptism</a>
+                      <a class="dropdown-item" href="#">Confirmation</a>
+                      <a class="dropdown-item" href="#">Marital Information</a>
+                    </div>
+                  </div>
+
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

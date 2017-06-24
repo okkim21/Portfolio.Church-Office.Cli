@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header">Offering Statistics by Week</div>
+                <div class="card-block">
+                    <canvas *ngIf='barChartWeeklyData' baseChart
+                    [datasets]="barChartWeeklyData"
+                    [labels]="barChartWeeklyLabels"
+                    [options]="barChartOptions"
+                    [legend]="barChartLegend"
+                    [chartType]="barChartType">
+                    </canvas>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header">Offering Statistics by Month</div>
+                <div class="card-block">
+                    <canvas *ngIf='barChartMonthlyData' baseChart
+                    [datasets]="barChartMonthlyData"
+                    [labels]="barChartMonthlyLabels"
+                    [options]="barChartOptions"
+                    [legend]="barChartLegend"
+                    [chartType]="barChartType">
+                    </canvas>
+
+                </div>
+            </div>
+        </div>
+    </div>
+     <div class="row">
+        <div class="col-sm-12">
+              <div class="card">
+                <div class="card-header">Offering Statistics by Month</div>
+                <div class="card-block">
+                   
+                     <canvas *ngIf='lineChartData' baseChart width="600" height="300"
+                [datasets]="lineChartData"
+                [labels]="lineChartLabels"
+                [options]="lineChartOptions"
+                [colors]="lineChartColors"
+                [legend]="lineChartLegend"
+                [chartType]="lineChartType"></canvas>
+
+                </div>
+            </div>
+           
+        </div>
+    </div>
+
+</div>

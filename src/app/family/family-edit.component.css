@@ -1,0 +1,19 @@
+.card {
+    margin-bottom: 20px;
+}
+.table-responsive {
+    overflow: visible;
+}
+.form-group {
+    margin-top:5px;
+}
+.form-group .label {
+    text-align: left;
+}
+.form-inline {
+    padding: 20px 0;
+}
+.col-form-label {
+    display: block;
+    text-align: right;
+}
