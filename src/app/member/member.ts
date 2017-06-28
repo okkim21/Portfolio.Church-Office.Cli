@@ -1,5 +1,5 @@
 export interface IMemberGeneral{
-    personalId:number,
+    id:number,
     englishLastName: string,
     englishFirstName: string,
     koreanLastName: string,

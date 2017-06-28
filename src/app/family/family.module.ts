@@ -8,10 +8,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FamilySearchComponent } from './family-search.component';
 
 import { FamilyService } from './family.service';
+import { MemberService } from '../member/member.service';
+
 import { FamilyFilterPipe } from './family-filter.pipe';
 import { SubregionFilterPipe } from '../code/code-subregion-filter.pipe';
 import { FamilyEditComponent } from './family-edit.component';
-
 
 import { MemberGeneralComponent } from '../member/member-general.component';
 
@@ -36,7 +37,8 @@ import { MemberGeneralComponent } from '../member/member-general.component';
   ],
    entryComponents: [MemberGeneralComponent],
   providers: [
-    FamilyService
+    FamilyService,
+    MemberService
   ]
 })
 export class FamilyModule { }

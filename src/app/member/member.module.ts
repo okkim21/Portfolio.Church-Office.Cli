@@ -15,7 +15,7 @@ import { MemberGeneralComponent } from './member-general.component';
     ReactiveFormsModule,
     FormsModule,
     RouterModule.forChild([
-      { path: 'families/:personalId', component: MemberGeneralComponent }
+      { path: 'member', component: MemberGeneralComponent }
       
     ])
   ],

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
@@ -24,6 +24,8 @@ export class MemberGeneralComponent implements OnInit {
   memberGeneralForm: FormGroup;
   memberGeneral:IMemberGeneral;
   familyId:number;
+  pageTitle:string;
+
 
   relations:any[];
 
@@ -34,11 +36,27 @@ export class MemberGeneralComponent implements OnInit {
               private router: Router) {}
 
   ngOnInit() : void {
+
+    if (this.memberGeneralForm) {
+            this.memberGeneralForm.reset();
+        }
+
       this.memberGeneral = this.data;
       this.familyId = this.id;
+      if (this.memberGeneral.id == undefined) { 
+        this.memberGeneral.id = 0;
+        
+      }
+
+        if (this.memberGeneral.id === 0) {
+            this.pageTitle = 'Add Member';
+        } else {
+            this.pageTitle = `Edit Member: ${this.memberGeneral.englishLastName}`;
+        }
+
 
       this.memberGeneralForm = this.fb.group({
-      id:this.id,  
+      id: this.memberGeneral.id,
       englishLastName: this.memberGeneral.englishLastName,
       englishFirstName: this.memberGeneral.englishFirstName,
       koreanLastName: this.memberGeneral.koreanLastName,
@@ -51,10 +69,6 @@ export class MemberGeneralComponent implements OnInit {
       createdDate: this.memberGeneral.createdDate,
       lastUpdatedDate: this.memberGeneral.lastUpdatedDate
     });
-
-    this.memberService.getMemberGeneral(this.id)
-      .subscribe((member:IMemberGeneral) => JSON.parse(JSON.stringify(member)),
-      error => this.errorMessage = <any>error);
 
     this.getRelations();
     
@@ -71,7 +85,6 @@ export class MemberGeneralComponent implements OnInit {
     this.relations = clone;
   }
 
-  
   saveMemberGeneral():void {
     if (this.memberGeneralForm.dirty && this.memberGeneralForm.valid) {
       let f = Object.assign({}, this.memberGeneral, this.memberGeneralForm.value);
@@ -81,15 +94,13 @@ export class MemberGeneralComponent implements OnInit {
             ()=>this.onSaveComplete(),
             (error: any) => this.errorMessage = <any>error
           );
-
     }
-
   }
 
   onSaveComplete() : void {
     this.memberGeneralForm.reset();
-    this.router.navigate(['/families', this.id]);
     this.activeModal.close();
+
   }
 
 

@@ -6,6 +6,7 @@ import { ActivatedRoute,Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { FamilyService } from './family.service';
+import { MemberService } from '../member/member.service';
 import { CodeService } from '../code/code.service';
 import { IFamily } from './family';
 
@@ -23,7 +24,7 @@ export class FamilyEditComponent implements OnInit {
   private sub: Subscription;
   errorMessage: string;
   family: IFamily;
-  familyMember:any[];
+  familyMembers:any[];
   states:any[];
   countries:any[];
   regions:any[];
@@ -32,6 +33,7 @@ export class FamilyEditComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
     private familyService: FamilyService,
+    private memberService: MemberService,
     private codeService: CodeService,
     private route: ActivatedRoute,
     private router: Router,
@@ -138,7 +140,6 @@ export class FamilyEditComponent implements OnInit {
     }
 
     this.family = family;
-    this.familyMember = family.familyMember;
     this.regionFilter = +family.region;
 
     if (this.family.id === 0 ) {
@@ -162,12 +163,26 @@ export class FamilyEditComponent implements OnInit {
         region: this.family.region,
         subregion: this.family.subregion,
         createdDate: this.family.createdDate,
-        lastUpdatedDate: this.family.lastUpdatedDate,
-        familyMember:this.family.familyMember
+        lastUpdatedDate: this.family.lastUpdatedDate
    
     });
+
+   this.getMemberByFamilyId(this.family.id);;
+    
   }
 
+
+  getMemberByFamilyId(familyId: number): void {
+    this.memberService.getMemberByFamilyId(familyId)
+      .subscribe((memberGeneral: any[]) => this.onMemberByFamilyIdRetrieved(memberGeneral),
+      error => this.errorMessage = <any>error);
+  }
+
+  onMemberByFamilyIdRetrieved(members:any[]) : void {
+      let clone = JSON.parse(JSON.stringify(members));
+      this.familyMembers = clone;
+      
+  }
 
   saveFamily():void {
     if (this.familyForm.dirty && this.familyForm.valid) {
@@ -192,7 +207,20 @@ export class FamilyEditComponent implements OnInit {
     const modalRef = this.modalService.open(MemberGeneralComponent, {size:"lg"});
      modalRef.componentInstance.data = memberGeneral;
      modalRef.componentInstance.id = this.family.id;
+     modalRef.result.then((result) => {
+      this.getMemberByFamilyId(this.family.id);
+    });
      
   }
-    
+
+  addMemberGeneral():void {
+    const modalRef = this.modalService.open(MemberGeneralComponent, {size:"lg"});
+    modalRef.componentInstance.data=[];
+     modalRef.componentInstance.id = this.family.id;
+     modalRef.result.then((result) => {
+      this.getMemberByFamilyId(this.family.id);
+    });
+     
+  }
+
 }

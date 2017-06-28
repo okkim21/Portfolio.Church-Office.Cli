@@ -116,8 +116,32 @@ export class InMemoryChurchData implements InMemoryDbService {
         // family  
         let families = [{
             'id': 1160,
-            'householderName': 'Ok Kim',
-            'name': '배우자',
+            'householderName': 'KyungHee Kim',
+            'name': '김경희',
+            'englishFirstName': 'KyungHee',
+            'englishLastName': 'Kim',
+            'baptismName': 'YY',
+            'gender': 'female',
+            'relation': '본인',
+            'address1': '5716 25th SE',
+            'city': 'Lynnwood',
+            'state': 'WA',
+            'zipcode': '98012',
+            'homePhone': '516-375-5060',
+            "address2": "",
+            "country": "USA",
+            "workPhone": "516-111-1111",
+            "cellPhone": "11111111111",
+            "faxNumber": "516-111-1112",
+            "region": 1,
+            "subregion": 1,
+            "createdDate": "12/01/2016",
+            "lastUpdatedDate": "12/20/2016"
+        },
+        {
+            'id': 1161,
+            'householderName': 'Ok Hee Kim',
+            'name': '',
             'englishFirstName': 'Ok',
             'englishLastName': 'Kim',
             'baptismName': 'Teresa',
@@ -136,195 +160,51 @@ export class InMemoryChurchData implements InMemoryDbService {
             "region": 1,
             "subregion": 1,
             "createdDate": "12/01/2016",
-            "lastUpdatedDate": "12/20/2016",
-            "familyMember":[
-            {
-                "id": 1,
-                "englishLastName": "Paik",
-                "englishFirstName": "JongHyun",
-                "koreanLastName": "백",
-                "koreanFirstName": "종현",
-                "baptismName": "Stephano",
-                "sex": "M",
-                "relation": {"id": 1, "name": "본인"},
-                "birthDate": "07/23/1969",
-                "baptizedDate": "12/2/2001",
-                "confirmationDate": "12/2/2002",
-                "marriedDate":"10/8/2005",
-                "generalInformation" : {
-                    "personalId": 439,
-                    "englishLastName": "Paik",
-                    "englishFirstName": "JongHyun",
-                    "koreanLastName": "백",
-                    "koreanFirstName": "종현",
-                    "birthDate": "07/23/1969",
-                    "birthPlace":"Seoul",
-                    "sex": "M",
-                    "relation": {"id": 1, "name": "본인"},
-                    "occupation":"programmer",
-                    "status":1,
-                    "statusDate":"12/2/2011",
-                    "createdDate": "21050101",
-                    "lastedUpdatedDate": "21051001"
-                },
-                "baptismInformation":{
-                    "personalId":439,
-                    "baptismId":1220,
-                    "engBaptismName": "Stephano",
-                    "koreanBaptismName": "스테파노",
-                    "baptizedDate": "07/23/1990",
-                    "baptizedChurch":"SadangDong Church",
-                    "firstCommunion":true,
-                    "priest":"Father A",
-                    "father":"백병기",
-                    "mother":"강삼숙",
-                    "godFather":"요셉",
-                    "godMother":"",
-                    "createdDate": "21050101",
-                    "lastedUpdatedDate": "21051001"
-                },
-                "confirmationInformation":{
-                    "personalId":439,
-                    "confirmationId":810,
-                    "confirmationDate": "07/23/2000",
-                    "confirmationChurch":"SadangDong Church",
-                    "priestId":1,
-                    "priest":"Father A",
-                    "father":"백병기",
-                    "mother":"강삼숙",
-                    "godFather":"요셉",
-                    "godMother":"",
-                    "createdDate": "21050101",
-                    "lastedUpdatedDate": "21051001"
-                },
-                "maritalInformation":{
-                    "personalId":439,
-                    "maritalId":288,
-                    "marriedDate": "07/23/2000",
-                    "marriedChurch":"SadangDong Church",
-                    "priest":"Father B",
-                    "createdDate": "21050101",
-                    "lastedUpdatedDate": "21051001"
-                }
-                },
-                {
-                "id": 2,
-                "englishLastName": "Kim",
-                "englishFirstName": "Ok",
-                "koreanLastName": "김",
-                "koreanFirstName": "옥",
-                "baptismName": "Teresha",
-                "sex": "F",
-                "relation": {"id": 2, "name": "아내"},
-                "birthDate": "12/02/1973",
-                "baptizedDate": "12/2/1992",
-                "confirmationDate": "12/2/1999",
-                "marriedDate":"10/8/2001",
-                "generalInformation" : {
-                    "personalId": 440,
-                    "englishLastName": "Kim",
-                    "englishFirstName": "Ok",
-                    "koreanLastName": "김",
-                    "koreanFirstName": "옥",
-                    "birthDate": "12/02/1973",
-                    "birthPlace":"Seoul",
-                    "sex": "F",
-                    "relation": {"id": 2, "name": "아내"},
-                    "occupation":"programmer",
-                    "status":1,
-                    "statusDate":"12/2/2011",
-                    "createdDateTime": "21050101",
-                    "lastedUpdatedDateTme": "21051001"
-                },
-                "baptismInformation":{
-                    "personalId": 440,
-                    "baptismId":555,
-                    "engBaptismName": "Teresha",
-                    "koreanBaptismName": "소화 데레사",
-                    "baptizedDate": "12/23/2002",
-                    "baptizedChurch":"Bayside Church",
-                    "firstCommunion":true,
-                    "priest":"Father A",
-                    "father":"김운영",
-                    "mother":"조병년",
-                    "godFather":"",
-                    "godMother":"마리아",
-                    "createdDate": "21050101",
-                    "lastedUpdatedDate": "21051001"
-                },
-                "confirmationInformation":{
-                    "personalId": 440,
-                    "confirmationId":777,
-                    "confirmationDate": "12/23/2002",
-                    "confirmationChurch":"Bayside Church",
-                    "priest":"Father A",
-                    "father":"김운영",
-                    "mother":"조병년",
-                    "godFather":"",
-                    "godMother":"마리아",
-                    "createdDate": "21050101",
-                    "lastedUpdatedDate": "21051001"
-                },
-                "maritalInformation":{
-                    "personalId": 440,
-                    "maritalId":878,
-                    "marriedDate": "10/09/1999",
-                    "marriedChurch":"Bayside Church",
-                    "priest":"Father B",
-                    "createdDate": "21050101",
-                    "lastedUpdatedDate": "21051001"
-                }
-                }                
-            ]
-
-        },
-        {
-            'id': 1526,
-            'householderName': 'Okhee Kim',
-            'name': '본인',
-            'englishFirstName': 'Okhee',
-            'englishLastName': 'Kim',
-            'baptismName': 'Julia',
-            'gender': 'male',
-            'relation': '본인',
-            'address1': '29214 25th Ave. SE',
-            'city': 'Bothell',
-            'state': 'WA',
-            'zipcode': '98012',
-            'homePhone': '222-375-5060'
-        },
-        {
-            'id': 1500,
-            'householderName': 'JongHyun Paik',
-            'name': '본인',
-            'englishFirstName': 'JongHyun',
-            'englishLastName': 'Paik',
-            'baptismName': 'Steve',
-            'gender': 'male',
-            'relation': '본인',
-            'address1': '1576 182',
-            'city': 'Lynnwood',
-            'state': 'WA',
-            'zipcode': '98012',
-            'homePhone': '222-375-5060'
-        },
-        {
-            'id': 1400,
-            'householderName': 'Jay Park',
-            'name': '본인',
-            'englishFirstName': 'Jay',
-            'englishLastName': 'Paark',
-            'baptismName': 'Paul',
-            'gender': 'male',
-            'relation': '본인',
-            'address1': '1576 182',
-            'city': 'Lynnwood',
-            'state': 'WA',
-            'zipcode': '98012',
-            'homePhone': '222-375-5060'
+            "lastUpdatedDate": "12/20/2016"
         }
         ];
-        
-        return { offeringByWeekly, offeringByMonthly, familyStat, states, countries, regions, subregions, relations, families };
+
+        let memberGeneral = [{
+            "id": 439,
+            "englishLastName": "Paik",
+            "englishFirstName": "JongHyun",
+            "koreanLastName": "백",
+            "koreanFirstName": "종현",
+            "baptismName": "Stephano",
+            "birthDate": "1969-07-23",
+            "birthPlace": "Seoul",
+            "baptizedDate": "12/2/1992",
+            "confirmationDate": "12/2/1999",
+            "marriedDate": "10/8/2001",
+            "gender": "male",
+            "relation": 1,
+            "occupation": "programmer",
+            "createdDate": "2005/01/01",
+            "lastUpdatedDate": "2005/10/01"
+        },
+        {
+            "id": 440,
+            "englishLastName": "Kim",
+            "englishFirstName": "Ok",
+            "koreanLastName": "김",
+            "koreanFirstName": "옥",
+            "baptismName": "Teresha",
+            "birthDate": "1973-12-02",
+            "birthPlace": "Seoul",
+            "baptizedDate": "12/2/1992",
+            "confirmationDate": "12/2/1999",
+            "marriedDate": "10/8/2001",
+            "gender": "female",
+            "relation": 2,
+            "occupation": "programmer",
+            "createdDateTime": "2005/01/01",
+            "lastUpdatedDateTme": "2005/1001"
+        }
+
+        ];
+
+
+
+        return { offeringByWeekly, offeringByMonthly, familyStat, states, countries, regions, subregions, relations, families, memberGeneral };
     }
 }
